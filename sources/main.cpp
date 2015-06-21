@@ -49,7 +49,7 @@ int main(void)
 			case KEY_LEFT:
 			if (p.getX() > 0)
 				p.moveLeft();
-			case KEY_DC:
+			case ' ':
 				p.shootBullet();
 				break;
 		}
