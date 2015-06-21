@@ -23,7 +23,7 @@ int main(void)
 	Penis 	p(0, w.getY() / 2 - 1);
 	Vagina  v[20];
 	int		key;
-	while ((key = getch()) != 27)
+	while ((key = getch()) != 27 && p.getLife() > 0)
 	{
 		switch(key)
 		{

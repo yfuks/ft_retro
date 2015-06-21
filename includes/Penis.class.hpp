@@ -31,10 +31,13 @@ public:
 	void	shootBullet();
 	void 	putBullets();
 
+	int 	getLife(void);
+	void 	minuslife(void);
+
 	static int _nbBullets;
 
 private:
-
+	int 	_life;
 	Bullet	*_bullets[10];
 };
 

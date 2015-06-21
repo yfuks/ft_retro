@@ -13,13 +13,13 @@
 #include "Penis.class.hpp"
 #include "Window.class.hpp"
 
-Penis::Penis(void) : Sprite(" //______\n   ____|_)\n_)_)", 0, 0) {
+Penis::Penis(void) : Sprite(" //______\n   ____|_)\n_)_)", 0, 0), _life(3) {
 	for (int i = 0; i < 10; i++) {
 		this->_bullets[i] = NULL;
 	}
 }
 
-Penis::Penis(int x, int y) : Sprite(" //______\n   ____|_)\n_)_)", x, y) {
+Penis::Penis(int x, int y) : Sprite(" //______\n   ____|_)\n_)_)", x, y), _life(3) {
 	for (int i = 0; i < 10; i++) {
 		this->_bullets[i] = NULL;
 	}
@@ -55,6 +55,14 @@ void	Penis::putBullets() {
 		if (this->_bullets[i])
 			Window::putSprite(*this->_bullets[i]);
 	}
+}
+
+int 	Penis::getLife(void) {
+	return this->_life;
+}
+
+void 	Penis::minuslife(void) {
+	this->_life -= 1;
 }
 
 int		Penis::_nbBullets = 0;
