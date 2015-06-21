@@ -34,7 +34,7 @@ public:
 	void	Clear(void);
 	void	Refresh(void);
 	void	putSprite(Sprite & s);
-	void	putSprite(Bullet & s);
+	void	putSprite(Bullet *bullets[10]);
 	void	putSprite(Vagina & s);
 	void 	putBackground(void);
 

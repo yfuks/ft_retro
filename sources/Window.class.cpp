@@ -110,28 +110,32 @@ void 	Window::putSprite(Sprite & s) {
 	}
 }
 
-void 	Window::putSprite(Bullet & s) {
-	std::string str = s.getForm();
-	s.move();
-	int 	line  = 0;
-	int 	col   = 0;
+void 	Window::putSprite(Bullet *bullets[10]) {
+	for (int i = 0; i < 10; i++) {
+		if (bullets[i] != NULL) {
+			std::string str = bullets[i]->getForm();
+			bullets[i]->move();
+			int 	line  = 0;
+			int 	col   = 0;
 
-	move(s.getY(), s.getX());
-	for(int i = 0; str[i] != 0; i++)
-	{
-		if(str[i] == '\n')
-		{
-			line++;
-			col = 0;
+			move(bullets[i]->getY(), bullets[i]->getX());
+			for(int i = 0; str[i] != 0; i++)
+			{
+				if(str[i] == '\n')
+				{
+					line++;
+					col = 0;
+				}
+				else if (bullets[i]->getY() + line >= 0 && bullets[i]->getX() + col >= 0 && bullets[i]->getY() + line < _y && bullets[i]->getX() + col < _x)
+				{
+					move(bullets[i]->getY() + line, bullets[i]->getX() + col);
+					addch(str[i]);
+					col++;
+				}
+				else
+					col++;
+			}
 		}
-		else if (s.getY() + line >= 0 && s.getX() + col >= 0 && s.getY() + line < _y && s.getX() + col < _x)
-		{
-			move(s.getY() + line, s.getX() + col);
-			addch(str[i]);
-			col++;
-		}
-		else
-			col++;
 	}
 }
 

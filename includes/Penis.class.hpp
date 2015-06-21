@@ -14,6 +14,7 @@
 # define PENIS_CLASS_HPP
 
 #include "Sprite.class.hpp"
+#include "Bullet.class.hpp"
 #include <string>
 
 class Penis : public Sprite {
@@ -27,6 +28,14 @@ public:
 	Penis &	operator=(Penis & src);
 
 	void 	HandleMovement();
+	void	shootBullet();
+	Bullet 	**getBullets();
+
+	static int _nbBullets;
+
+private:
+
+	Bullet	*_bullets[10];
 };
 
 #endif
