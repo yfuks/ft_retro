@@ -22,9 +22,13 @@ int main(void)
 	Window	w;
 	Bullet *b = new Bullet();
 	Penis 	p(0, w.getY() / 2 - 1);
-	Vagina  *v = new Vagina(w.getX() + rand() % 20, 1 + (rand() % (w.getY() - 1)));
-	Vagina  *v1 = new Vagina(w.getX() + rand() % 20, 1 + (rand() % (w.getY() - 1)));
-	Vagina  *v2 = new Vagina(w.getX() + rand() % 20, 1 + (rand() % (w.getY() - 1)));
+	Vagina  *v = new Vagina(w.getX() + rand() % 20, 1 + (rand() % (w.getY() - 3)));
+	Vagina  *v1 = new Vagina(w.getX() + rand() % 20, 1 + (rand() % (w.getY() - 3)));
+	Vagina  *v2 = new Vagina(w.getX() + rand() % 80, 1 + (rand() % (w.getY() - 3)));
+	Vagina  *v3 = new Vagina(w.getX() + rand() % 100, 1 + (rand() % (w.getY() - 3)));
+	Vagina  *v4 = new Vagina(w.getX() + rand() % 40, 1 + (rand() % (w.getY() - 3)));
+	Vagina  *v5 = new Vagina(w.getX() + rand() % 140, 1 + (rand() % (w.getY() - 3)));
+	Vagina  *v6 = new Vagina(w.getX() + rand() % 200, 1 + (rand() % (w.getY() - 3)));
 	int		key;
 
 	while ((key = getch()) != 27)
@@ -52,7 +56,11 @@ int main(void)
 		w.putSprite(*b);
 		w.putSprite(*v);
 		w.putSprite(*v1);
-		w.putSprite(*v2);				
+		w.putSprite(*v2);
+		w.putSprite(*v3);
+		w.putSprite(*v4);
+		w.putSprite(*v5);
+		w.putSprite(*v6);			
 		w.putBackground();
 		w.Refresh();
 	}
