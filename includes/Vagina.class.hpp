@@ -29,6 +29,7 @@ public:
 
 private:
 	clock_t _clock;
+	int 	_SPEED;
 };
 
 #endif

@@ -13,11 +13,11 @@
 #include "Vagina.class.hpp"
 #include "Window.class.hpp"
 
-Vagina::Vagina(void) : Sprite("({})", Window::_x, Window::_y / 2), _clock(clock()) {
+Vagina::Vagina(void) : Sprite("({})", Window::_x + rand() % 400, 1 + (rand() % (Window::_y - 3))), _clock(clock()), _SPEED(rand() % 40) {
 
 }
 
-Vagina::Vagina(int x, int y) : Sprite("({})", x, y), _clock(clock()) {
+Vagina::Vagina(int x, int y) : Sprite("({})", x, y), _clock(clock()), _SPEED(rand() % 40) {
 
 }
 
@@ -35,12 +35,12 @@ Vagina & Vagina::operator=(Vagina & src) {
 void 	Vagina::move(void) {
 	if (this->getX() > -4)
 	{
-		if (((40) * (clock() - _clock)) / CLOCKS_PER_SEC > 1)
+		if (((20 + _SPEED) * (clock() - _clock)) / CLOCKS_PER_SEC > 1)
 	    {
 	    	_clock = clock();
 	    	_x--;
     	}
     }
     else
-    	this->moveTo(Window::_x + rand() % 20, 1 + (rand() % (Window::_y - 2)));
+    	this->moveTo(Window::_x + rand() % 20, 1 + (rand() % (Window::_y - 3)));
 }
