@@ -51,6 +51,7 @@ int main(void)
 		w.putSprite(p);
 		p.putBullets();
 		w.putSprite(v, p);
+		w.putLife(p);
 		w.putBackground();
 		w.Refresh();
 	}

@@ -39,6 +39,7 @@ public:
 	void	putSprite(Vagina & s);
 	void 	putSprite(Vagina vagina[20], Penis & P);
 	void 	putBackground(void);
+	void 	putLife(Penis & P);
 
 	static int _x;
 	static int _y;

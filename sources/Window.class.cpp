@@ -206,6 +206,10 @@ void 	Window::putBackground(void) {
 	}
 }
 
+void 	Window::putLife(Penis & P) {
+	move(1, 3);
+	printw("%d",P.getLife());
+}
 
 int Window::_pos = 0;
 int Window::_x = 0;
