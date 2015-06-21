@@ -139,6 +139,13 @@ void 	Window::putSprite(Bullet *bullets[10]) {
 	}
 }
 
+void 	Window::putSprite(Vagina vagina[20]) {
+	for(int i = 0; i < 20; i++)
+	{
+		putSprite(vagina[i]);
+	}
+}
+
 void 	Window::putSprite(Vagina & s) {
 	std::string str = s.getForm();
 	move(s.getY(), s.getX() + 4);

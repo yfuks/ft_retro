@@ -36,6 +36,7 @@ public:
 	void	putSprite(Sprite & s);
 	void	putSprite(Bullet *bullets[10]);
 	void	putSprite(Vagina & s);
+	void 	putSprite(Vagina vagina[20]);
 	void 	putBackground(void);
 
 	static int _x;

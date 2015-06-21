@@ -13,7 +13,7 @@
 #include "Vagina.class.hpp"
 #include "Window.class.hpp"
 
-Vagina::Vagina(void) : Sprite("({})", Window::_x, Window::_y / 2), _clock(clock()) {
+Vagina::Vagina(void) : Sprite("({})", Window::_x + rand() % 400, 1 + (rand() % (Window::_y - 3))), _clock(clock()) {
 
 }
 
