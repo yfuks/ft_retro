@@ -12,14 +12,15 @@
 
 #include "Bullet.class.hpp"
 #include "Window.class.hpp"
+#include "Penis.class.hpp"
 #include <unistd.h>
 #include <ncurses.h>
 
-Bullet::Bullet(void) : Sprite("~O", 10, 1), _clock(clock()) {
+Bullet::Bullet(void) : Sprite("~O", 10, 1), _clock(clock()), _id(0) {
 	this->move();
 }
 
-Bullet::Bullet(std::string form, int x, int y) : Sprite(form, x, y), _clock(clock()) {
+Bullet::Bullet(std::string form, int x, int y, int id) : Sprite(form, x, y), _clock(clock()), _id(id) {
 	this->move();
 }
 
@@ -38,12 +39,19 @@ Bullet &	Bullet::operator=(Bullet & src) {
 	return *this;
 }
 
+int			Bullet::getId() const {
+	return this->_id;
+}
+
 void		Bullet::move() {
-	if (this->getX() < Window::_x) {
+	if (this->_x < Window::_x) {
 		if (((60) * (clock() - _clock)) / CLOCKS_PER_SEC > 1)
 	    {
 	    	_clock = clock();
 	    	_x++;
     	}
+    }
+    else {
+    	Penis::_isId = this->_id;
     }
 }

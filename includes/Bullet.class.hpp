@@ -21,17 +21,19 @@ class Bullet : public Sprite {
 
 public:
 	Bullet(void);
-	Bullet(std::string form, int x, int y);
+	Bullet(std::string form, int x, int y, int id);
 	Bullet(Bullet & src);
 	~Bullet(void);
 
 	Bullet &	operator=(Bullet & src);
 
 	void		move();
+	int			getId() const;
 
 private:
 
 	clock_t		_clock;
+	int			_id;
 };
 
 #endif

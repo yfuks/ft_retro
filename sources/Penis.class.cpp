@@ -12,15 +12,16 @@
 
 #include "Penis.class.hpp"
 #include "Window.class.hpp"
+#include <unistd.h>
 
-Penis::Penis(void) : Sprite(" //______\n   ____|_)\n_)_)", 0, 0), _life(3) {
-	for (int i = 0; i < 10; i++) {
+Penis::Penis(void) : Sprite(" //______\n   ____|_)\n_)_)", 0, 0), _life(3), _isShoot(true) {
+	for (int i = 0; i < 50; i++) {
 		this->_bullets[i] = NULL;
 	}
 }
 
-Penis::Penis(int x, int y) : Sprite(" //______\n   ____|_)\n_)_)", x, y), _life(3) {
-	for (int i = 0; i < 10; i++) {
+Penis::Penis(int x, int y) : Sprite(" //______\n   ____|_)\n_)_)", x, y), _life(3), _isShoot(true) {
+	for (int i = 0; i < 50; i++) {
 		this->_bullets[i] = NULL;
 	}
 }
@@ -30,7 +31,7 @@ Penis::Penis(Penis & src) : Sprite(src) {
 }
 
 Penis::~Penis(void) {
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 50; i++) {
 		if (this->_bullets[i])
 			delete this->_bullets[i];
 	}
@@ -44,14 +45,26 @@ Penis &	Penis::operator=(Penis & src) {
 }
 
 void	Penis::shootBullet() {
-	if (this->_nbBullets < 10) {
-		this->_bullets[Penis::_nbBullets] = new Bullet("~o", this->getX() + 10, this->getY() + 1);
-		this->_nbBullets++;
+	if (Penis::_isId >= 0) {
+		if (this->_bullets[Penis::_isId]) {
+			this->_bullets[Penis::_isId] = NULL;
+			Penis::_isId = -1;
+			this->_nbBullets--;
+		}
+	}
+	if (this->_nbBullets < 50 && this->_isShoot) {
+		for (int i = 0; i < 50; i++) {
+			if (this->_bullets[i] == NULL) {
+				this->_bullets[i] = new Bullet("~o", this->getX() + 10, this->getY() + 1, i);
+				this->_nbBullets++;
+				return;
+			}
+		}
 	}
 }
 
 void	Penis::putBullets() {
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 50; i++) {
 		if (this->_bullets[i])
 			Window::putSprite(*this->_bullets[i]);
 	}
@@ -66,3 +79,4 @@ void 	Penis::minuslife(void) {
 }
 
 int		Penis::_nbBullets = 0;
+int		Penis::_isId = -1;

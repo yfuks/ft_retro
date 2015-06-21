@@ -35,10 +35,12 @@ public:
 	void 	minuslife(void);
 
 	static int _nbBullets;
+	static int _isId;
 
 private:
 	int 	_life;
-	Bullet	*_bullets[10];
+	int		_isShoot;
+	Bullet	*_bullets[50];
 };
 
 #endif
