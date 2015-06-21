@@ -11,6 +11,7 @@
 // ************************************************************************** //
 
 #include "Penis.class.hpp"
+#include "Window.class.hpp"
 
 Penis::Penis(void) : Sprite(" //______\n   ____|_)\n_)_)", 0, 0) {
 	for (int i = 0; i < 10; i++) {
@@ -44,13 +45,16 @@ Penis &	Penis::operator=(Penis & src) {
 
 void	Penis::shootBullet() {
 	if (this->_nbBullets < 10) {
-		this->_bullets[Penis::_nbBullets] = new Bullet("~o", this->getX() + 10, this->getY() + 2);
+		this->_bullets[Penis::_nbBullets] = new Bullet("~o", this->getX() + 10, this->getY() + 1);
 		this->_nbBullets++;
 	}
 }
 
-Bullet **Penis::getBullets() {
-	return this->_bullets;
+void	Penis::putBullets() {
+	for (int i = 0; i < 10; i++) {
+		if (this->_bullets[i])
+			Window::putSprite(*this->_bullets[i]);
+	}
 }
 
 int		Penis::_nbBullets = 0;

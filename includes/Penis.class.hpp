@@ -29,7 +29,7 @@ public:
 
 	void 	HandleMovement();
 	void	shootBullet();
-	Bullet 	**getBullets();
+	void 	putBullets();
 
 	static int _nbBullets;
 

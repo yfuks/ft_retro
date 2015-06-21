@@ -110,15 +110,13 @@ void 	Window::putSprite(Sprite & s) {
 	}
 }
 
-void 	Window::putSprite(Bullet *bullets[10]) {
-	for (int i = 0; i < 10; i++) {
-		if (bullets[i] != NULL) {
-			std::string str = bullets[i]->getForm();
-			bullets[i]->move();
+void 	Window::putSprite(Bullet & bullet) {
+			std::string str = bullet.getForm();
+			bullet.move();
 			int 	line  = 0;
 			int 	col   = 0;
 
-			move(bullets[i]->getY(), bullets[i]->getX());
+			move(bullet.getY(), bullet.getX());
 			for(int i = 0; str[i] != 0; i++)
 			{
 				if(str[i] == '\n')
@@ -126,17 +124,15 @@ void 	Window::putSprite(Bullet *bullets[10]) {
 					line++;
 					col = 0;
 				}
-				else if (bullets[i]->getY() + line >= 0 && bullets[i]->getX() + col >= 0 && bullets[i]->getY() + line < _y && bullets[i]->getX() + col < _x)
+				else if (bullet.getY() + line >= 0 && bullet.getX() + col >= 0 && bullet.getY() + line < _y && bullet.getX() + col < _x)
 				{
-					move(bullets[i]->getY() + line, bullets[i]->getX() + col);
+					move(bullet.getY() + line, bullet.getX() + col);
 					addch(str[i]);
 					col++;
 				}
 				else
 					col++;
 			}
-		}
-	}
 }
 
 void 	Window::putSprite(Vagina vagina[20], Penis & P) {

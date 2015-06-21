@@ -42,13 +42,13 @@ int main(void)
 			case KEY_LEFT:
 			if (p.getX() > 0)
 				p.moveLeft();
-			//case ' ':
-			//	p.shootBullet();
-			//	break;
+			case ' ':
+				p.shootBullet();
+				break;
 		}
 		w.refreshSize();
 		w.putSprite(p);
-//		w.putSprite(p.getBullets());
+		p.putBullets();
 		w.putSprite(v, p);
 		w.putBackground();
 		w.Refresh();
