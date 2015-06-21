@@ -41,4 +41,6 @@ void 	Vagina::move(void) {
 	    	_x--;
     	}
     }
+    else
+    	this->~Vagina();
 }

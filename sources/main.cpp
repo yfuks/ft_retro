@@ -18,10 +18,13 @@
 
 int main(void)
 {
+	srand(time(NULL));
 	Window	w;
 	Bullet *b = new Bullet();
 	Penis 	p(0, w.getY() / 2 - 1);
-	Vagina  *v = new Vagina();
+	Vagina  *v = new Vagina(w.getX() + rand() % 20, 1 + (rand() % (w.getY() - 1)));
+	Vagina  *v1 = new Vagina(w.getX() + rand() % 20, 1 + (rand() % (w.getY() - 1)));
+	Vagina  *v2 = new Vagina(w.getX() + rand() % 20, 1 + (rand() % (w.getY() - 1)));
 	int		key;
 
 	while ((key = getch()) != 27)
@@ -48,6 +51,8 @@ int main(void)
 		w.putSprite(p);
 		w.putSprite(*b);
 		w.putSprite(*v);
+		w.putSprite(*v1);
+		w.putSprite(*v2);				
 		w.putBackground();
 		w.Refresh();
 	}

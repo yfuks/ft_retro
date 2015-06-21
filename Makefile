@@ -6,7 +6,7 @@
 #    By: yfuks <yfuks@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/15 15:05:20 by yfuks             #+#    #+#              #
-#    Updated: 2015/06/21 19:31:57 by yfuks            ###   ########.fr        #
+#    Updated: 2015/06/21 20:04:45 by yfuks            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -32,10 +32,11 @@ all:			$(NAME)
 
 $(NAME):		obj $(OBJS)
 				@clang++ $(FLAGS) -o $(NAME) $(INC) $(OBJS)
-				@echo "enjoy :)"
+				@echo "[\033[1;32m√\033[m]" $@								
 
 obj/%.o:		sources/%.cpp
 				@clang++ $(FLAGS) -o $@ $(INCLUDES) -c $<
+				@echo "[\033[1;32m√\033[m]" $@
 
 obj:
 				@mkdir -p obj
