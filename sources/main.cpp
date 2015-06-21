@@ -15,6 +15,7 @@
 #include "Bullet.class.hpp"
 #include "Vagina.class.hpp"
 #include <ncurses.h>
+#include <unistd.h>
 
 int main(void)
 {
@@ -22,7 +23,16 @@ int main(void)
 	Window	w;
 	Penis 	p(0, w.getY() / 2 - 1);
 	Vagina  v[20];
+	Sprite 	s("                              -    .|||||.\n                                  |||||||||\n                          -      ||||||  .\n                              -  ||||||   >\n                                ||||||| -/\n                           --   ||||||'(\n                        -       .'      \\\n                             .-'    | | |\n                            /        \\ \\ \\\n              --        -  |      `---:.`.\\\n             ____________._>           \\\\_\\\\____ ,--.__\n  --    ,--\"\"           /    `-   .       |)_)    \'\\     \'\\\n     ,/               \\           .\'              '\\     |\n     | \"   \"   \"          \\         /                '\\,  /\n", -20 , w.getY() - 15);
 	int		key;
+
+	for(int i = 0; i < w.getX() + 10; i++)
+	{
+		s.moveRight();
+		w.putSprite(s);
+		w.Refresh();
+		usleep(40000);
+	}
 	while ((key = getch()) != 27 && p.getLife() > 0 && Window::_x > 50 && Window::_y > 10)
 	{
 		switch(key)
