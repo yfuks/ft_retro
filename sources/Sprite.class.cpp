@@ -26,7 +26,7 @@ Sprite::Sprite(Sprite & src) {
 }
 
 Sprite::~Sprite(void) {
-	return;
+	
 }
 
 Sprite & Sprite::operator=(Sprite & src) {

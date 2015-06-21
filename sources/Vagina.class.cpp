@@ -14,7 +14,8 @@
 #include "Window.class.hpp"
 
 Vagina::Vagina(void) : Sprite("({})", Window::_x + rand() % 400, 1 + (rand() % (Window::_y - 3))), _clock(clock()) {
-
+	std::string s[3] = {"({})", "(.y.)", "(:D)"};
+	this->_form = s[rand() % 3];
 }
 
 Vagina::Vagina(int x, int y) : Sprite("({})", x, y), _clock(clock()) {
@@ -47,6 +48,8 @@ void 	Vagina::move(void) {
 }
 
 void 	Vagina::reset(void) {
+	std::string s[3] = {"({})", "(.y.)", "(:D)"};
 	this->_x =  Window::_x + rand() % 400;
 	this->_y = 1 + (rand() % (Window::_y - 3));
+	this->_form = s[rand() % 3];
 }
