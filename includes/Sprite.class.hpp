@@ -28,6 +28,7 @@ public:
 
 	int 			getX(void);
 	int				getY(void);
+	void			setX(int x);
 	std::string 	getForm(void);
 	void			moveTo(int x, int y);
 	bool 			isTouching(int x, int y);

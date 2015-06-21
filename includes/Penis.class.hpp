@@ -15,6 +15,7 @@
 
 #include "Sprite.class.hpp"
 #include "Bullet.class.hpp"
+#include "Vagina.class.hpp"
 #include <string>
 
 class Penis : public Sprite {
@@ -29,7 +30,7 @@ public:
 
 	void 	HandleMovement();
 	void	shootBullet();
-	void 	putBullets();
+	void 	putBullets(Vagina vagina[20]);
 
 	int 	getLife(void);
 	void 	minuslife(void);

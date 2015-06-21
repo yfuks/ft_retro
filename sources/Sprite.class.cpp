@@ -44,6 +44,10 @@ int		Sprite::getX(void) {
 	return this->_x;
 }
 
+void	Sprite::setX(int x) {
+	this->_x = x;
+}
+
 std::string Sprite::getForm(void) {
 	return this->_form;
 }

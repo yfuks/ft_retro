@@ -110,15 +110,20 @@ void 	Window::putSprite(Sprite & s) {
 	}
 }
 
-void 	Window::putSprite(Bullet & bullet) {
+void 	Window::putSprite(Bullet & bullet, Vagina vagina[20]) {
 			std::string str = bullet.getForm();
-			move(bullet.getY(), bullet.getX() - 3);
-			addch(' ');
 			bullet.move();
 			int 	line  = 0;
 			int 	col   = 0;
 
 			move(bullet.getY(), bullet.getX());
+			for (int i = 0; i < 20; i++) {
+				if (bullet.isTouching(vagina[i].getX(), vagina[i].getY())) {
+					vagina[i].reset();
+					bullet.setX(Window::_x);
+				}
+					
+			}
 			for(int i = 0; str[i] != 0; i++)
 			{
 				if(str[i] == '\n')
@@ -183,7 +188,7 @@ void 	Window::putBackground(void) {
     	_clock = clock();
     	Clear();
 		int x = 0;
-		for(int i = _pos; i < _x + _pos; i++)
+		for(int i = _pos; i < _x + _pos && i < (int)_backgroundTop.size(); i++)
 		{
 			move(0, x);
 			if (i > 1000)
@@ -193,7 +198,7 @@ void 	Window::putBackground(void) {
 			x++;
 		}
 		x = 0;
-		for(int i = _pos; i < _x + _pos; i++)
+		for(int i = _pos; i < _x + _pos && i < (int)_backgroundBot.size(); i++)
 		{
 			move(_y - 1, x);
 			if (i > 1000)

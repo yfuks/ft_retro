@@ -63,10 +63,10 @@ void	Penis::shootBullet() {
 	}
 }
 
-void	Penis::putBullets() {
+void	Penis::putBullets(Vagina vagina[20]) {
 	for (int i = 0; i < 50; i++) {
 		if (this->_bullets[i])
-			Window::putSprite(*this->_bullets[i]);
+			Window::putSprite(*this->_bullets[i], vagina);
 	}
 }
 
