@@ -112,6 +112,8 @@ void 	Window::putSprite(Sprite & s) {
 
 void 	Window::putSprite(Bullet & bullet) {
 			std::string str = bullet.getForm();
+			move(bullet.getY(), bullet.getX() - 3);
+			addch(' ');
 			bullet.move();
 			int 	line  = 0;
 			int 	col   = 0;
@@ -181,7 +183,7 @@ void 	Window::putBackground(void) {
     	_clock = clock();
     	Clear();
 		int x = 0;
-		for(int i = _pos; i < _x + _pos && i < (int)_backgroundTop.size(); i++)
+		for(int i = _pos; i < _x + _pos; i++)
 		{
 			move(0, x);
 			if (i > 1000)
@@ -191,7 +193,7 @@ void 	Window::putBackground(void) {
 			x++;
 		}
 		x = 0;
-		for(int i = _pos; i < _x + _pos && i < (int)_backgroundBot.size(); i++)
+		for(int i = _pos; i < _x + _pos; i++)
 		{
 			move(_y - 1, x);
 			if (i > 1000)
