@@ -139,10 +139,13 @@ void 	Window::putSprite(Bullet *bullets[10]) {
 	}
 }
 
-void 	Window::putSprite(Vagina vagina[20]) {
+void 	Window::putSprite(Vagina vagina[20], Penis & P) {
 	for(int i = 0; i < 20; i++)
 	{
-		putSprite(vagina[i]);
+		if (!P.isTouching(vagina[i].getX(), vagina[i].getY()) && !P.isTouching(vagina[i].getX() + 4, vagina[i].getY()))
+			putSprite(vagina[i]);
+		else
+			vagina[i].move();
 	}
 }
 

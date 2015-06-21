@@ -16,6 +16,7 @@
 #include "Sprite.class.hpp"
 #include "Bullet.class.hpp"
 #include "Vagina.class.hpp"
+#include "Penis.class.hpp"
 #include <time.h>
 
 class Window {
@@ -36,7 +37,7 @@ public:
 	void	putSprite(Sprite & s);
 	void	putSprite(Bullet *bullets[10]);
 	void	putSprite(Vagina & s);
-	void 	putSprite(Vagina vagina[20]);
+	void 	putSprite(Vagina vagina[20], Penis & P);
 	void 	putBackground(void);
 
 	static int _x;

@@ -49,7 +49,7 @@ int main(void)
 		w.refreshSize();
 		w.putSprite(p);
 //		w.putSprite(p.getBullets());
-		w.putSprite(v);
+		w.putSprite(v, p);
 		w.putBackground();
 		w.Refresh();
 	}
