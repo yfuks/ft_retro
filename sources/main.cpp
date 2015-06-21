@@ -42,6 +42,7 @@ int main(void)
 			case KEY_LEFT:
 			if (p.getX() > 0)
 				p.moveLeft();
+				break;
 			case ' ':
 				p.shootBullet();
 				break;

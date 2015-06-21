@@ -26,6 +26,7 @@ public:
 	Vagina & operator=(Vagina & src);
 
 	void	move(void);
+	void 	reset(void);
 
 private:
 	clock_t _clock;

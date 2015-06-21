@@ -44,3 +44,8 @@ void 	Vagina::move(void) {
     else
     	this->moveTo(Window::_x + rand() % 20, 1 + (rand() % (Window::_y - 2)));
 }
+
+void 	Vagina::reset(void) {
+	this->_x =  Window::_x + rand() % 400;
+	this->_y = 1 + (rand() % (Window::_y - 3));
+}

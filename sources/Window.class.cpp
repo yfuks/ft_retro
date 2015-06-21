@@ -141,7 +141,7 @@ void 	Window::putSprite(Vagina vagina[20], Penis & P) {
 		if (!P.isTouching(vagina[i].getX(), vagina[i].getY()) && !P.isTouching(vagina[i].getX() + 4, vagina[i].getY()))
 			putSprite(vagina[i]);
 		else
-			vagina[i].move();
+			vagina[i].reset();
 	}
 }
 
