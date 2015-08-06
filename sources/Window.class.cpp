@@ -90,7 +90,20 @@ void 	Window::putSprite(Sprite & s) {
 	std::string str = s.getForm();
 	int 	line  = 0;
 	int 	col   = 0;
+	Sprite stmp1("         \n          \n    ", s.getX() + 1, s.getY());
+	Sprite stmp2("         \n          \n    ", s.getX() - 1, s.getY());
+	Sprite stmp3("         \n          \n    ", s.getX(), s.getY() + 1);
+	Sprite stmp4("         \n          \n    ", s.getX(), s.getY() - 1);
 
+	if (s.getForm() == " //______\n   ____|_)\n_)_)")
+	{
+		putSprite(stmp1);
+		putSprite(stmp2);
+		if (s.getY() - 1 > 0)
+			putSprite(stmp4);
+		if (s.getY() + 1 < Window::_y - 3)
+			putSprite(stmp3);
+	}
 	move(s.getY(), s.getX());
 	for(int i = 0; str[i] != 0; i++)
 	{
@@ -116,9 +129,17 @@ void 	Window::putSprite(Bullet & bullet, Vagina vagina[20]) {
 			int 	line  = 0;
 			int 	col   = 0;
 
+			move(bullet.getY(), bullet.getX() - 2);
+			addch(' ');
+			
 			move(bullet.getY(), bullet.getX());
 			for (int i = 0; i < 20; i++) {
-				if (bullet.isTouching(vagina[i].getX(), vagina[i].getY())) {
+				if (bullet.isTouching(vagina[i].getX(), vagina[i].getY())) 
+				{
+					move(bullet.getY(), bullet.getX() - 1);
+					addch(' ');
+					move(bullet.getY(), bullet.getX() - 2);
+					addch(' ');
 					vagina[i].reset();
 					bullet.setX(Window::_x);
 				}
@@ -149,6 +170,8 @@ void 	Window::putSprite(Vagina vagina[20], Penis & P) {
 			putSprite(vagina[i]);
 		else
 		{
+			Sprite tmp("     ", vagina[i].getX(), vagina[i].getY());
+			putSprite(tmp);
 			vagina[i].reset();
 			P.minuslife();
 		}
@@ -186,7 +209,6 @@ void 	Window::putBackground(void) {
 	if (((20) * (clock() - _clock)) / CLOCKS_PER_SEC > 1)
     {
     	_clock = clock();
-    	Clear();
 		int x = 0;
 		for(int i = _pos; i < _x + _pos && i < (int)_backgroundTop.size(); i++)
 		{

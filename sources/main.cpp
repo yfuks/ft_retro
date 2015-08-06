@@ -26,13 +26,14 @@ int main(void)
 	Sprite 	s("                              -    .|||||.\n                                  |||||||||\n                          -      ||||||  .\n                              -  ||||||   >\n                                ||||||| -/\n                           --   ||||||'(\n                        -       .'      \\\n                             .-'    | | |\n                            /        \\ \\ \\\n              --        -  |      `---:.`.\\\n             ____________._>           \\\\_\\\\____ ,--.__\n  --    ,--\"\"           /    `-   .       |)_)    \'\\     \'\\\n     ,/               \\           .\'              '\\     |\n     | \"   \"   \"          \\         /                '\\,  /\n", -20 , w.getY() - 15);
 	int		key;
 
-	for(int i = 0; i < w.getX() + 10; i++)
+/*	for(int i = 0; i < w.getX() + 10; i++)
 	{
 		s.moveRight();
 		w.putSprite(s);
 		w.Refresh();
 		usleep(40000);
 	}
+	w.Clear();*/
 	while ((key = getch()) != 27 && p.getLife() > 0 && Window::_x > 50 && Window::_y > 10)
 	{
 		switch(key)
