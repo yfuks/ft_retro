@@ -31,7 +31,7 @@ INC = 			-lncurses
 all:			$(NAME)
 
 $(NAME):		obj $(OBJS)
-				g++ $(FLAGS) -o $(NAME) $(OBJS) $(INC)
+				@g++ $(FLAGS) -o $(NAME) $(OBJS) $(INC)
 				@echo "[\033[1;32m√\033[m]" $@								
 
 obj/%.o:		sources/%.cpp
