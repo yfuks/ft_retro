@@ -18,6 +18,7 @@
 #include "Vagina.class.hpp"
 #include "Penis.class.hpp"
 #include <time.h>
+#include <ncurses.h>
 
 class Window {
 

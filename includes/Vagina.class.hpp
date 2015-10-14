@@ -14,6 +14,7 @@
 # define VAGINA_CLASS_HPP
 
 #include "Sprite.class.hpp"
+#include <stdlib.h>
 
 class Vagina : public Sprite {
 
