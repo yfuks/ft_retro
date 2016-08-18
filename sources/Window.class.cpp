@@ -131,11 +131,23 @@ void 	Window::putSprite(Bullet & bullet, Vagina vagina[20]) {
 
 			move(bullet.getY(), bullet.getX() - 2);
 			addch(' ');
-			
+
 			move(bullet.getY(), bullet.getX());
 			for (int i = 0; i < 20; i++) {
-				if (bullet.isTouching(vagina[i].getX(), vagina[i].getY())) 
+				if (bullet.isTouching(vagina[i].getX(), vagina[i].getY()))
 				{
+					move(bullet.getY(), bullet.getX() + 1);
+					addch(' ');
+					move(bullet.getY(), bullet.getX() + 2);
+					addch(' ');
+					move(bullet.getY(), bullet.getX() + 3);
+					addch(' ');
+					move(bullet.getY(), bullet.getX() + 4);
+					addch(' ');
+					move(bullet.getY(), bullet.getX() + 5);
+					addch(' ');
+					move(bullet.getY(), bullet.getX());
+					addch(' ');
 					move(bullet.getY(), bullet.getX() - 1);
 					addch(' ');
 					move(bullet.getY(), bullet.getX() - 2);
@@ -143,7 +155,7 @@ void 	Window::putSprite(Bullet & bullet, Vagina vagina[20]) {
 					vagina[i].reset();
 					bullet.setX(Window::_x);
 				}
-					
+
 			}
 			for(int i = 0; str[i] != 0; i++)
 			{
@@ -253,7 +265,7 @@ int Window::_y = 0;
 
 ( . y . )
 
- //______                   
+ //______
    ____|_) ~∽o
 _)_)
 
